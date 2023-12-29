@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/styles/button/pressed.tres" type="StyleBox" id=1]
+[ext_resource path="res://resources/styles/panel/default.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/fonts/roboto_48.tres" type="DynamicFont" id=3]
+[ext_resource path="res://resources/styles/button/normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://resources/styles/button/hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://scenes/second/second.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Second" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 700.0
+margin_bottom = 1260.0
+rect_min_size = Vector2( 680, 0 )
+size_flags_horizontal = 6
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin/VBoxContainer"]
+margin_right = 680.0
+margin_bottom = 1120.0
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/VBoxContainer/Panel"]
+margin_right = 680.0
+margin_bottom = 1120.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer/Panel/VBoxContainer"]
+margin_top = 531.0
+margin_right = 680.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 3 )
+text = "Упс, здесь ничего нет."
+align = 1
+autowrap = true
+
+[node name="Footer" type="PanelContainer" parent="Margin/VBoxContainer"]
+margin_top = 1140.0
+margin_right = 680.0
+margin_bottom = 1240.0
+rect_min_size = Vector2( 0, 100 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Back" type="Button" parent="Margin/VBoxContainer/Footer"]
+margin_left = 240.0
+margin_top = 18.0
+margin_right = 440.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 200, 64 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+text = "Назад"
+
+[connection signal="pressed" from="Margin/VBoxContainer/Footer/Back" to="." method="_on_Back_pressed"]
