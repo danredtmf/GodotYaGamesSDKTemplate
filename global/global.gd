@@ -21,5 +21,8 @@ func _rewarded_ad(args):
 	# Здесь можно возобновить музыку / звуки
 
 func _ad(args):
-	print(args[0])
+	if args[0] == "error":
+		print("ad error")
+	elif args[0] == "close":
+		print("ad close")
 	# Здесь можно возобновить музыку / звуки
